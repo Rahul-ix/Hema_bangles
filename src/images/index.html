@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bangles Store</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, black, #333);
+            color: gold;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+        }
+
+        .contact {
+            text-align: center;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            padding: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.4s;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* ORDER BUTTON */
+        .order-btn {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .order-btn:hover {
+            background: darkgreen;
+        }
+
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .back {
+            text-align: center;
+        }
+
+        .back button {
+            padding: 10px 20px;
+            background: black;
+            color: gold;
+            border: none;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>💍 Bangles Store</header>
+
+<div class="contact">Contact This Number
+    📞 7795071869
+</div>
+
+<div class="container" id="home">
+
+    <div class="card" onclick="showGreen()">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.8OfIYTuG_XkxbkOS7_V7JAHaE8">
+        <h3>Marriage Green Bangles</h3>
+    </div>
+
+    <div class="card" onclick="showGold()">
+        <img src="https://www.meenajewelers.com/images/43_Gold_Bangles_set_Indian_13225.jpg">
+        <h3> Gold Bangles</h3>
+    </div>
+</div>
+<div class="contact">📞 Contact for delivery: 7795071869
+    <h4> 📦🚚 Fast Delivery Available</h4>
+</div>
+<div class="container" id="products"></div>
+
+<div class="back" id="backBtn" style="display:none;">
+    <button onclick="goHome()">⬅ Back</button>
+</div>
+
+<script>
+
+    // ORDER FUNCTION
+    function orderNow() {
+        alert("📞 Call this number to order: 7795071869");
+    }
+
+    // GREEN
+    function showGreen() {
+        document.getElementById("home").style.display = "none";
+        document.getElementById("backBtn").style.display = "block";
+
+        document.getElementById("products").innerHTML = `
+
+    <div class="card">
+      <img src="https://i.pinimg.com/originals/39/ee/e7/39eee7165dc1bac8fa3762fb5872a7b4.jpg">
+      <h3>Marriage Green Bangles</h3>
+      <p>100 Bangles</p>
+      <p class="price">₹400</p>
+      <button class="order-btn" onclick="orderNow()">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="https://i.pinimg.com/550x/18/8b/f6/188bf684acfa6b9e0bb4d159c763c57a.jpg">
+      <h3>Green Glass Bangles</h3>
+      <p class="price">₹400</p>
+      <button class="order-btn" onclick="orderNow()">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.L4VUMhs6OTucJxTy818EoAAAAA">
+      <h3>Marriage Special Green</h3>
+      <p class="price">₹400</p>
+      <button class="order-btn" onclick="orderNow()">Order</button>
+    </div>
+
+  `;
+    }
+
+    // GOLD
+    function showGold() {
+        document.getElementById("home").style.display = "none";
+        document.getElementById("backBtn").style.display = "block";
+
+        document.getElementById("products").innerHTML = `
+
+    <div class="card">
+      <img src="https://www.meenajewelers.com/images/43_Gold_Bangles_set_Indian_13225.jpg">
+      <h3>Gold Bangles Set</h3>
+      <p class="price">₹200+</p>
+      <button class="order-btn" onclick="orderNow()">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.A1Moc5fa5e2OmGIFPC0bzQAAAA">
+      <h3>Designer Gold Bangles</h3>
+      <p class="price">₹200+</p>
+      <button class="order-btn" onclick="orderNow()">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.g_b4Ozy4Td7WpfRnkoFxowHaDe">
+      <h3>Premium Gold Bangles</h3>
+      <p class="price">₹200</p>
+      <button class="order-btn" onclick="orderNow()">Order</button>
+    </div>
+
+  `;
+    }
+
+    // BACK
+    function goHome() {
+        document.getElementById("home").style.display = "grid";
+        document.getElementById("products").innerHTML = "";
+        document.getElementById("backBtn").style.display = "none";
+    }
+
+</script>
+
+<h3> More products soon </h3>
+</body>
+</html>
